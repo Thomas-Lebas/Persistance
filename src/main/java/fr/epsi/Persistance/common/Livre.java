@@ -2,6 +2,7 @@ package fr.epsi.Persistance.common;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -12,12 +13,13 @@ import java.util.Date;
 @Builder
 public class Livre {
 
-    @Column
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String titre;
     @Temporal(TemporalType.DATE)
-    private Date date_de_Parution;
+    private LocalDate date_de_Parution;
     private int nombre_de_pages;
 
     @ManyToOne
